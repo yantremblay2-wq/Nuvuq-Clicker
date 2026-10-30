@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nuvuq Clicker</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Clicker">
+<meta name="theme-color" content="#1F3A4D">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1F3A4D; --ink-soft:#4C6475; --bg:#EEF3F4; --surface:#FFFFFF; --line:#D5E0E3;
+  --treat:#F2A93B; --treat-hi:#F6C46E; --treat-ink:#5A3A06; --ok:#2E8B6E; --danger:#B4453A;
+  --shell:#DCE6E9; --shell-edge:#B9CBD0;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ink:#E6EEF0; --ink-soft:#9FB3BC; --bg:#11202A; --surface:#1A2E3A; --line:#2A4352;
+    --treat:#F2A93B; --treat-hi:#F6C46E; --treat-ink:#3A2504; --ok:#4FBF98; --danger:#E07A6F;
+    --shell:#25404F; --shell-edge:#355768;
+    color-scheme:dark;
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  font-family:"Nunito",ui-rounded,"SF Pro Rounded",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);color:var(--ink);font-size:17px;line-height:1.5;
+  -webkit-tap-highlight-color:transparent;
+  display:flex;flex-direction:column;
+}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--treat);outline-offset:2px}
+
+header.top{
+  display:flex;align-items:center;gap:12px;padding:14px 20px 8px;
+}
+.mark{width:34px;height:34px;border-radius:10px;flex:none}
+.brand{font-weight:900;font-size:20px;letter-spacing:-.01em;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand small{display:block;font-weight:600;font-size:13px;color:var(--ink-soft);letter-spacing:0;margin-top:-3px}
+.petchip{
+  border:1.5px solid var(--line);background:var(--surface);border-radius:999px;
+  padding:6px 12px 6px 8px;display:flex;align-items:center;gap:6px;font-weight:700;font-size:15px;cursor:pointer;
+}
+.petchip .sp{font-size:18px}
+
+main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 20px 24px}
+.view{display:none;max-width:560px;margin:0 auto}
+.view.on{display:block}
+
+/* ---------- Clicker ---------- */
+.session{text-align:center;color:var(--ink-soft);font-weight:600;margin:8px 0 18px}
+.session b{color:var(--ink)}
+.device{
+  margin:0 auto;width:min(78vw,300px);aspect-ratio:1/1.12;
+  background:var(--shell);border-radius:34% 34% 30% 30% / 28% 28% 24% 24%;
+  border:2px solid var(--shell-edge);
+  box-shadow:inset 0 -10px 0 var(--shell-edge);
+  display:grid;place-items:center;position:relative;
+}
+.device::after{ /* trou de la dragonne */
+  content:"";position:absolute;top:7%;left:50%;width:22px;height:10px;margin-left:-11px;
+  border-radius:6px;background:var(--bg);border:2px solid var(--shell-edge);
+}
+.btn-click{
+  width:62%;aspect-ratio:1;border-radius:50%;border:0;cursor:pointer;
+  background:radial-gradient(circle at 50% 38%,var(--treat-hi) 0 48%,var(--treat) 49%);
+  box-shadow:0 12px 0 #C9821C, 0 14px 18px rgba(0,0,0,.18);
+  transform:translateY(-6px);transition:transform 60ms, box-shadow 60ms;
+  touch-action:manipulation;-webkit-user-select:none;user-select:none;
+  font-weight:900;font-size:22px;color:var(--treat-ink);
+}
+.btn-click.down{transform:translateY(5px);box-shadow:0 1px 0 #C9821C,0 2px 4px rgba(0,0,0,.2)}
+.count{text-align:center;margin-top:26px}
+.count .n{font-size:64px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.count .l{color:var(--ink-soft);font-weight:600}
+.reminder{
+  margin:22px auto 0;max-width:340px;text-align:center;font-size:15px;color:var(--ink-soft);
+}
+.row{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.ghost{
+  border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:9px 14px;
+  font-weight:700;font-size:15px;cursor:pointer;
+}
+.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:none;padding:9px 14px;font-weight:700;font-size:15px;cursor:pointer;color:var(--ink-soft)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* ---------- Guide ---------- */
+h1{font-size:28px;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin:12px 0 6px}
+.lede{color:var(--ink-soft);margin:0 0 18px}
+details.rules{background:var(--surface);border-radius:18px;padding:4px 18px;margin-bottom:22px;border:1.5px solid var(--line)}
+details.rules summary{font-weight:800;padding:12px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+details.rules summary::after{content:"+";font-size:22px;line-height:1}
+details.rules[open] summary::after{content:"–"}
+details.rules ol{margin:0 0 14px;padding-left:22px}
+details.rules li{margin-bottom:8px}
+.lessons{list-style:none;padding:0;margin:0;position:relative}
+.lessons::before{content:"";position:absolute;left:21px;top:20px;bottom:20px;width:2px;background:var(--line)}
+.lesson{
+  display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:none;border:0;
+  padding:10px 0;cursor:pointer;position:relative;
+}
+.lesson .dot{
+  width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:var(--surface);border:2px solid var(--line);font-weight:900;color:var(--ink-soft);z-index:1;
+}
+.lesson.done .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+.lesson.first .dot{background:var(--treat);border-color:var(--treat);color:var(--treat-ink)}
+.lesson.first.done .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+.lesson .t{font-weight:800;font-size:17px;display:block}
+.lesson .m{font-size:14px;color:var(--ink-soft)}
+
+/* ---------- Animaux ---------- */
+.pets{display:grid;gap:12px}
+.pet{
+  display:flex;gap:14px;align-items:center;background:var(--surface);border:2px solid var(--line);
+  border-radius:20px;padding:14px 16px;cursor:pointer;text-align:left;width:100%;
+}
+.pet.active{border-color:var(--treat)}
+.pet .av{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:28px;background:var(--bg);flex:none}
+.pet .nm{font-weight:900;font-size:19px;display:block}
+.pet .ds{font-size:14px;color:var(--ink-soft)}
+.pet .tag{margin-left:auto;font-size:13px;font-weight:800;color:var(--treat-ink);background:var(--treat-hi);border-radius:999px;padding:3px 10px;white-space:nowrap}
+.edit{margin-left:auto;border:0;background:none;color:var(--ink-soft);font-weight:700;font-size:14px;padding:8px;cursor:pointer}
+.primary{
+  width:100%;border:0;border-radius:16px;padding:15px;background:var(--ink);color:var(--bg);
+  font-weight:800;font-size:17px;cursor:pointer;margin-top:16px;
+}
+.empty{text-align:center;padding:30px 10px;color:var(--ink-soft)}
+.empty .big{font-size:46px}
+
+/* ---------- Feuilles (sheets) ---------- */
+.scrim{position:fixed;inset:0;background:rgba(10,20,26,.45);display:none;z-index:20}
+.scrim.on{display:block}
+.sheet{
+  position:fixed;left:0;right:0;bottom:0;z-index:21;background:var(--bg);
+  border-radius:24px 24px 0 0;max-height:92%;overflow-y:auto;
+  padding:10px 22px calc(26px + env(safe-area-inset-bottom,0px));
+  transform:translateY(105%);transition:transform 260ms cubic-bezier(.2,.8,.2,1);
+  max-width:620px;margin:0 auto;
+}
+.sheet.on{transform:none}
+.grab{width:42px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 10px}
+.close{float:right;border:0;background:var(--surface);border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer}
+.meta{color:var(--ink-soft);font-weight:600;font-size:15px;margin-bottom:14px}
+.goal{background:var(--surface);border-radius:16px;padding:14px 16px;border-left:5px solid var(--treat);margin-bottom:18px}
+.steps{padding-left:0;list-style:none;counter-reset:s;margin:0 0 18px}
+.steps li{counter-increment:s;position:relative;padding-left:40px;margin-bottom:12px}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;
+  background:var(--ink);color:var(--bg);font-weight:900;font-size:14px;display:grid;place-items:center;
+}
+.note{font-size:15px;margin:0 0 10px}
+.note b{display:block}
+.mini{
+  margin:22px 0 4px;background:var(--surface);border-radius:20px;padding:16px;display:flex;align-items:center;gap:16px;
+  border:1.5px solid var(--line);
+}
+.mini .btn-click{width:88px;font-size:15px;box-shadow:0 7px 0 #C9821C;transform:translateY(-3px)}
+.mini .btn-click.down{transform:translateY(4px);box-shadow:0 0 0 #C9821C}
+.mini .reps{font-size:30px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}
+.mini .sub{font-size:14px;color:var(--ink-soft)}
+.bar{height:8px;border-radius:4px;background:var(--line);margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--treat);width:0;transition:width 150ms}
+label.f{display:block;font-weight:800;font-size:15px;margin:14px 0 6px}
+input.f,textarea.f{
+  width:100%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:12px;padding:12px;font:inherit;font-size:17px;
+}
+textarea.f{min-height:84px;resize:vertical}
+.species{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.species button{
+  border:2px solid var(--line);background:var(--surface);border-radius:16px;padding:14px;font-weight:800;cursor:pointer;
+  font-size:17px;
+}
+.species button[aria-pressed="true"]{border-color:var(--treat);background:var(--treat-hi);color:var(--treat-ink)}
+.del{width:100%;border:0;background:none;color:var(--danger);font-weight:700;padding:14px;cursor:pointer}
+
+/* ---------- Barre d’onglets ---------- */
+nav.tabs{
+  display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--line);background:var(--surface);
+  padding:6px 8px 4px;
+}
+nav.tabs button{border:0;background:none;padding:6px 0;cursor:pointer;color:var(--ink-soft);font-weight:700;font-size:13px;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav.tabs button svg{width:26px;height:26px}
+nav.tabs button[aria-selected="true"]{color:var(--ink)}
+nav.tabs button[aria-selected="true"] svg{color:var(--treat)}
+.toast{
+  position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-weight:700;opacity:0;
+  transition:opacity 200ms, transform 200ms;pointer-events:none;z-index:30;white-space:nowrap;
+}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <img class="mark" alt="" src="data:image/png;base64,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">
+  <div class="brand">Nuvuq Clicker<small>Dressage positif</small></div>
+  <button class="petchip" id="petchip" type="button"></button>
+</header>
+
+<main>
+  <!-- CLICKER -->
+  <section class="view on" id="v-clicker" aria-label="Clicker">
+    <p class="session" id="sessionLine"></p>
+    <div class="device">
+      <button class="btn-click" id="bigClick" type="button" aria-label="Cliquer">clic</button>
+    </div>
+    <div class="count"><div class="n" id="count">0</div><div class="l" id="countLbl">clics cette séance</div></div>
+    <p class="reminder">Chaque clic promet une récompense. Clique au moment exact du bon geste, puis récompense dans les 2 secondes.</p>
+    <div class="row">
+      <div class="seg" role="group" aria-label="Son du clic">
+        <button type="button" data-sound="classique">Son classique</button>
+        <button type="button" data-sound="doux">Son doux</button>
+      </div>
+      <button class="ghost" id="reset" type="button">Nouvelle séance</button>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="view" id="v-guide" aria-label="Guide">
+    <h1 id="guideTitle">Guide du clicker</h1>
+    <p class="lede" id="guideLede"></p>
+    <details class="rules">
+      <summary>Les règles d’or du clic</summary>
+      <ol>
+        <li><b>Un clic = une récompense.</b> Toujours, même si tu as cliqué par erreur. Sinon le son perd sa valeur.</li>
+        <li><b>Le clic marque l’instant.</b> Il dit « c’est ça! » au moment précis du bon geste. La friandise peut suivre une seconde après.</li>
+        <li><b>Le clicker n’est pas une télécommande.</b> On ne clique pas pour appeler l’animal ou attirer son attention.</li>
+        <li><b>Des étapes minuscules.</b> On récompense chaque petit progrès vers le geste final, puis on devient un peu plus exigeant.</li>
+        <li><b>Le mot vient à la fin.</b> On ajoute « assis », « viens »… seulement quand l’animal fait déjà le geste 8 fois sur 10.</li>
+        <li><b>Séances courtes.</b> 3 à 5 minutes pour un chien, 1 à 3 minutes pour un chat. On termine toujours sur une réussite.</li>
+        <li><b>Petites friandises de grande valeur.</b> Grosses comme un petit pois, que l’animal adore et avale vite.</li>
+      </ol>
+    </details>
+    <ul class="lessons" id="lessons"></ul>
+  </section>
+
+  <!-- ANIMAUX -->
+  <section class="view" id="v-pets" aria-label="Mes animaux">
+    <h1>Mes animaux</h1>
+    <p class="lede">Touche une fiche pour choisir avec qui tu t’entraînes. Le guide s’adapte à l’espèce.</p>
+    <div class="pets" id="pets"></div>
+    <button class="primary" id="addPet" type="button">Ajouter un animal</button>
+  </section>
+</main>
+
+<nav class="tabs" role="tablist">
+  <button role="tab" type="button" data-tab="clicker" aria-selected="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="17" rx="7"/><circle cx="12" cy="13" r="4" fill="currentColor"/></svg>Clicker</button>
+  <button role="tab" type="button" data-tab="guide" aria-selected="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg>Guide</button>
+  <button role="tab" type="button" data-tab="pets" aria-selected="false">
+    <svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6" cy="10" rx="2" ry="2.6"/><ellipse cx="10" cy="6" rx="2" ry="2.6"/><ellipse cx="14.5" cy="6" rx="2" ry="2.6"/><ellipse cx="18.5" cy="10" rx="2" ry="2.6"/><path d="M12.2 11.5c-3 0-6 4.3-6 6.5 0 1.6 1.3 2.3 2.7 2.3 1.3 0 2.1-.7 3.3-.7s2 .7 3.3.7c1.4 0 2.7-.7 2.7-2.3 0-2.2-3-6.5-6-6.5z"/></svg>Animaux</button>
+</nav>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= Données des leçons ================= */
+const LESSONS = [
+  { id:"charger", for:["chien","chat"], title:"Charger le clicker", time:"2 à 3 séances de 2 min", reps:15,
+    goal:"Apprendre à ton animal que le son du clic annonce toujours une friandise. C’est la base de tout le reste.",
+    steps:[
+      "Prépare 15 petites friandises dans ta main ou un bol hors de portée.",
+      "Mets-toi dans un endroit calme. Ton animal n’a rien à faire de spécial.",
+      "Clique une fois, puis donne une friandise dans la seconde qui suit.",
+      "Attends quelques secondes et recommence, à des moments variés. Utilise le compteur ci-dessous.",
+      "Fais 2 ou 3 courtes séances, sur une journée ou deux."
+    ],
+    success:"Au son du clic, ton animal tourne la tête vers toi ou vers ta main en attendant sa friandise.",
+    tip:"Si ton animal sursaute au son, choisis « Son doux » dans l’onglet Clicker ou éloigne un peu le téléphone." },
+
+  { id:"attention-chien", for:["chien"], title:"Regarde-moi", time:"Séances de 3 min", reps:10,
+    goal:"Ton chien apprend à te regarder dans les yeux, la base d’une bonne écoute.",
+    steps:[
+      "Tiens-toi devant ton chien, une friandise dans une main, le clicker dans l’autre.",
+      "Attends sans rien dire. Dès que ses yeux croisent les tiens, même une fraction de seconde : clic, friandise.",
+      "Après 10 réussites, attends que le regard dure une seconde avant de cliquer, puis deux.",
+      "Quand il te regarde presque à coup sûr, dis « regarde » juste avant, puis clique quand il le fait."
+    ],
+    success:"Ton chien te regarde 2 à 3 secondes quand tu dis « regarde ».",
+    tip:"Ne place pas la friandise près de ton visage pour l’attirer : on veut qu’il choisisse de te regarder." },
+
+  { id:"nom-chat", for:["chat"], title:"Réagir à son nom", time:"Séances de 1 à 2 min", reps:10,
+    goal:"Ton chat apprend que son nom veut dire « tourne-toi vers moi, il y a du bon ».",
+    steps:[
+      "Choisis un moment où ton chat est éveillé et à un ou deux mètres de toi.",
+      "Dis son nom une seule fois, d’une voix douce.",
+      "S’il tourne la tête ou une oreille vers toi : clic, puis lance ou tends une friandise.",
+      "Augmente peu à peu la distance, puis essaie depuis une autre pièce."
+    ],
+    success:"Ton chat se tourne vers toi ou s’approche quand tu dis son nom.",
+    tip:"Évite d’utiliser son nom pour les choses désagréables (bain, médicament) pendant l’apprentissage." },
+
+  { id:"cible-chien", for:["chien"], title:"Touche la main", time:"Séances de 3 min", reps:10,
+    goal:"Ton chien touche ta paume avec son museau. Très utile pour le guider ensuite n’importe où.",
+    steps:[
+      "Présente ta main ouverte, paume vers lui, à quelques centimètres de son museau.",
+      "Par curiosité, il va la renifler. Au contact : clic, friandise donnée avec l’autre main.",
+      "Retire ta main entre chaque essai, puis présente-la à nouveau.",
+      "Varie la position : plus haut, plus bas, un peu plus loin.",
+      "Quand il touche à chaque fois, dis « touche » en présentant la main."
+    ],
+    success:"Ton chien vient toucher ta main même à un mètre de distance.",
+    tip:"Si ça ne marche pas, frotte un peu de friandise sur ta paume pour les premiers essais." },
+
+  { id:"cible-chat", for:["chat"], title:"Toucher la cible", time:"Séances de 1 à 2 min", reps:10,
+    goal:"Ton chat touche du nez le bout d’une baguette (une baguette chinoise ou un crayon fait l’affaire). C’est l’exercice préféré des chats.",
+    steps:[
+      "Tiens la baguette à 5 cm du nez de ton chat.",
+      "Il va la renifler : au contact du nez, clic et friandise.",
+      "Retire la baguette derrière ton dos, puis présente-la de nouveau.",
+      "Éloigne-la petit à petit pour qu’il fasse un pas, puis deux, pour la toucher.",
+      "Une fois fiable, dis « touche » en la présentant."
+    ],
+    success:"Ton chat suit la baguette à travers la pièce pour la toucher.",
+    tip:"Cet exercice sert ensuite à le guider vers sa cage de transport, un tabouret ou la balance." },
+
+  { id:"assis", for:["chien","chat"], title:"Assis", time:"Séances de 2 à 4 min", reps:10,
+    goal:"Ton animal s’assoit sur demande.",
+    steps:[
+      "Tiens une friandise devant son nez, puis monte-la lentement au-dessus de sa tête, vers l’arrière.",
+      "En suivant la friandise des yeux, ses fesses vont descendre. Au moment où elles touchent le sol : clic, friandise.",
+      "Après quelques réussites, fais le même geste sans friandise dans la main. Clique et récompense avec l’autre main.",
+      "Rends le geste de la main de plus en plus petit.",
+      "Quand il s’assoit dès le petit geste, dis « assis » juste avant de le faire."
+    ],
+    success:"Ton animal s’assoit quand tu dis « assis », sans geste de la main.",
+    tip:"Chez le chat, tu peux aussi « capturer » le geste : clique chaque fois qu’il s’assoit de lui-même près de toi." },
+
+  { id:"couche", for:["chien"], title:"Couché", time:"Séances de 3 à 5 min", reps:10,
+    goal:"Ton chien se couche sur demande. On le commence une fois « assis » bien acquis.",
+    steps:[
+      "Demande « assis ».",
+      "Descends une friandise lentement de son nez vers le sol, entre ses pattes avant.",
+      "Clique dès qu’il baisse la tête, puis dès qu’il plie les coudes, puis seulement quand il est couché.",
+      "Retire la friandise de ta main et garde seulement le geste vers le sol.",
+      "Ajoute le mot « couché » quand il se couche presque à chaque geste."
+    ],
+    success:"Ton chien se couche quand tu dis « couché ».",
+    tip:"S’il se relève, recommence plus lentement. C’est normal d’avoir besoin de plusieurs séances." },
+
+  { id:"viens", for:["chien","chat"], title:"Viens", time:"Séances de 2 à 4 min", reps:10,
+    goal:"Ton animal vient vers toi quand tu l’appelles. Le rappel peut lui sauver la vie.",
+    steps:[
+      "Commence à 1 ou 2 mètres, dans une pièce calme.",
+      "Accroupis-toi et dis « viens » d’une voix joyeuse.",
+      "Dès qu’il fait un pas vers toi : clic. Donne la friandise quand il arrive près de toi.",
+      "Augmente la distance, puis appelle-le d’une autre pièce.",
+      "Avec un chien, pratique ensuite dehors en laisse longue."
+    ],
+    success:"Ton animal arrive en courant quand il entend « viens », même s’il est occupé.",
+    tip:"Ne l’appelle jamais pour une chose qu’il n’aime pas. « Viens » doit toujours être une bonne nouvelle." },
+
+  { id:"patte", for:["chien"], title:"Donne la patte", time:"Séances de 3 min", reps:10,
+    goal:"Ton chien pose sa patte dans ta main.",
+    steps:[
+      "Ton chien assis, ferme ton poing sur une friandise et place-le près de sa patte avant.",
+      "Il va renifler, puis gratter ta main avec sa patte. Au moment où la patte touche : clic, friandise.",
+      "Présente ensuite ta main ouverte, paume vers le haut. Clique quand la patte s’y pose.",
+      "Ajoute le mot « patte » quand il le fait à coup sûr."
+    ],
+    success:"Ton chien pose sa patte dans ta main quand tu dis « patte ».",
+    tip:"Ne prends pas sa patte toi-même : on veut qu’il fasse le geste par lui-même." },
+
+  { id:"tabouret", for:["chat"], title:"Monter sur le tabouret", time:"Séances de 1 à 3 min", reps:10,
+    goal:"Ton chat monte sur un tabouret ou un petit meuble et y reste. Pratique pour le brosser, le peser ou le soigner.",
+    steps:[
+      "Place un tabouret stable près de toi.",
+      "Clique dès qu’il regarde le tabouret, puis dès qu’il s’en approche.",
+      "Utilise ensuite la baguette-cible au-dessus du tabouret. Clique quand ses pattes avant montent.",
+      "Puis clique seulement quand ses quatre pattes sont dessus.",
+      "Attends qu’il reste une seconde, puis deux, avant de cliquer. Ajoute le mot « monte »."
+    ],
+    success:"Ton chat saute sur le tabouret quand tu dis « monte » et y attend.",
+    tip:"Fais l’exercice « Toucher la cible » avant celui-ci, il va beaucoup plus vite." },
+
+  { id:"cage", for:["chat"], title:"Aimer la cage de transport", time:"Plusieurs courtes séances", reps:10,
+    goal:"Ton chat entre de lui-même dans sa cage de transport. Fini le stress avant le vétérinaire.",
+    steps:[
+      "Laisse la cage ouverte dans le salon, porte retirée si possible, avec une couverture qu’il aime.",
+      "Clique chaque fois qu’il la regarde ou s’en approche, et dépose la friandise près de la cage.",
+      "Puis clique quand il met la tête dedans, ensuite une patte, puis tout le corps. Dépose la friandise au fond.",
+      "Quand il y entre facilement, remets la porte et ferme-la une seconde, puis plus longtemps.",
+      "Soulève enfin la cage quelques secondes, puis repose-la et récompense."
+    ],
+    success:"Ton chat entre dans sa cage tout seul et y reste calme.",
+    tip:"Va à son rythme. Si ton chat recule, reviens à l’étape précédente." },
+
+  { id:"tourne", for:["chien","chat"], title:"Fais un tour", time:"Séances de 2 à 3 min", reps:10,
+    goal:"Ton animal tourne sur lui-même. Un tour amusant qui travaille la coordination.",
+    steps:[
+      "Avec une friandise près de son nez (ou la baguette-cible pour un chat), guide-le dans un petit cercle.",
+      "Au début, clique dès qu’il fait un quart de tour.",
+      "Puis attends la moitié du tour, ensuite le tour complet.",
+      "Remplace la friandise par un simple geste circulaire de la main.",
+      "Ajoute le mot « tourne » quand le tour complet est facile."
+    ],
+    success:"Ton animal fait un tour complet quand tu dis « tourne ».",
+    tip:"Choisis toujours le même sens pour commencer. L’autre sens peut avoir son propre mot plus tard." }
+];
+
+/* ================= État ================= */
+const KEY = "nuvuq-clicker-v1";
+let S = { pets:[], activeId:null, sound:"classique" };
+try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch(e) {}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e) {} }
+let sessionCount = 0;
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const activePet = () => S.pets.find(p => p.id === S.activeId) || null;
+const emoji = sp => sp === "chat" ? "🐱" : "🐶";
+
+/* ================= Son du clic ================= */
+let ac = null;
+function clickSound(){
+  try {
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+    if (ac.state === "suspended") ac.resume();
+    const t = ac.currentTime, soft = S.sound === "doux";
+    // Deux petits claquements, comme la lame de métal d’un vrai clicker
+    [[0, 1], [0.045, 0.55]].forEach(([dt, amp]) => {
+      const len = Math.floor(ac.sampleRate * 0.02);
+      const buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = (Math.random()*2-1) * Math.pow(1 - i/len, 6);
+      const src = ac.createBufferSource(); src.buffer = buf;
+      const bp = ac.createBiquadFilter(); bp.type = "bandpass";
+      bp.frequency.value = soft ? 1800 : 3800; bp.Q.value = soft ? 0.8 : 1.6;
+      const g = ac.createGain(); g.gain.value = amp * (soft ? 0.5 : 1.4);
+      src.connect(bp).connect(g).connect(ac.destination);
+      src.start(t + dt);
+    });
+  } catch(e) {}
+  if (navigator.vibrate) navigator.vibrate(12);
+}
+function bindClicker(btn, onClick){
+  const down = e => { e.preventDefault(); btn.classList.add("down"); clickSound(); onClick(); };
+  const up = () => btn.classList.remove("down");
+  btn.addEventListener("pointerdown", down);
+  btn.addEventListener("pointerup", up);
+  btn.addEventListener("pointerleave", up);
+  btn.addEventListener("pointercancel", up);
+  btn.addEventListener("keydown", e => { if ((e.key === " " || e.key === "Enter") && !e.repeat) down(e); });
+  btn.addEventListener("keyup", up);
+}
+
+/* ================= Onglets ================= */
+function showTab(name){
+  document.querySelectorAll("nav.tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === name));
+  document.querySelectorAll(".view").forEach(v => v.classList.toggle("on", v.id === "v-" + name));
+  $("main").scrollTop = 0;
+  render();
+}
+document.querySelectorAll("nav.tabs button").forEach(b => b.addEventListener("click", () => showTab(b.dataset.tab)));
+$("#petchip").addEventListener("click", () => showTab("pets"));
+
+/* ================= Rendu ================= */
+function render(){
+  const p = activePet();
+  $("#petchip").innerHTML = p ? `<span class="sp">${emoji(p.species)}</span>${esc(p.name)}` : `<span class="sp">＋</span>Mon animal`;
+
+  // Clicker
+  $("#sessionLine").innerHTML = p ? `Séance avec <b>${esc(p.name)}</b>` : `Crée la fiche de ton animal pour suivre ses progrès`;
+  $("#count").textContent = sessionCount;
+  $("#countLbl").textContent = sessionCount === 1 ? "clic cette séance" : "clics cette séance";
+  document.querySelectorAll("[data-sound]").forEach(b => b.setAttribute("aria-pressed", b.dataset.sound === S.sound));
+
+  // Guide
+  const list = p ? LESSONS.filter(l => l.for.includes(p.species)) : LESSONS;
+  $("#guideTitle").textContent = p ? `Le parcours de ${p.name}` : "Guide du clicker";
+  const done = p ? list.filter(l => p.done && p.done[l.id]).length : 0;
+  $("#guideLede").textContent = p
+    ? `${done} exercice${done>1?"s":""} réussi${done>1?"s":""} sur ${list.length}. Suis-les dans l’ordre, en commençant toujours par charger le clicker.`
+    : "Ajoute la fiche de ton chien ou de ton chat pour voir seulement les exercices qui lui conviennent.";
+  $("#lessons").innerHTML = list.map((l,i) => {
+    const ok = p && p.done && p.done[l.id];
+    const who = l.for.length === 2 ? "Chiens et chats" : (l.for[0] === "chien" ? "Chiens" : "Chats");
+    return `<li><button class="lesson ${i===0?"first":""} ${ok?"done":""}" data-lesson="${l.id}" type="button">
+      <span class="dot">${ok ? "✓" : i+1}</span>
+      <span><span class="t">${esc(l.title)}</span><span class="m">${ok ? "Réussi" : esc(l.time)}${p ? "" : " · " + who}</span></span>
+    </button></li>`;
+  }).join("");
+  document.querySelectorAll("[data-lesson]").forEach(b => b.addEventListener("click", () => openLesson(b.dataset.lesson)));
+
+  // Animaux
+  $("#pets").innerHTML = S.pets.length ? S.pets.map(pt => {
+    const n = LESSONS.filter(l => l.for.includes(pt.species) && pt.done && pt.done[l.id]).length;
+    const desc = [pt.species === "chat" ? "Chat" : "Chien", pt.breed, pt.age].filter(Boolean).map(esc).join(", ");
+    return `<div class="pet ${pt.id===S.activeId?"active":""}" data-pet="${pt.id}" role="button" tabindex="0">
+      <span class="av">${emoji(pt.species)}</span>
+      <span><span class="nm">${esc(pt.name)}</span><span class="ds">${desc}<br>${n} exercice${n>1?"s":""} réussi${n>1?"s":""}</span></span>
+      ${pt.id===S.activeId ? `<span class="tag">En séance</span>` : `<button class="edit" data-edit="${pt.id}" type="button">Modifier</button>`}
+    </div>`;
+  }).join("") : `<div class="empty"><div class="big">🐾</div>Aucune fiche pour l’instant.<br>Ajoute ton premier animal.</div>`;
+  document.querySelectorAll("[data-pet]").forEach(el => {
+    const pick = e => {
+      if (e.target.closest("[data-edit]")) return;
+      if (S.activeId === el.dataset.pet) { openPetForm(el.dataset.pet); return; }
+      S.activeId = el.dataset.pet; sessionCount = 0; save(); render();
+      toast(`${activePet().name} est en séance`);
+    };
+    el.addEventListener("click", pick);
+    el.addEventListener("keydown", e => { if (e.key === "Enter") pick(e); });
+  });
+  document.querySelectorAll("[data-edit]").forEach(b => b.addEventListener("click", () => openPetForm(b.dataset.edit)));
+}
+
+/* ================= Feuilles ================= */
+function openSheet(html){
+  $("#sheet").innerHTML = `<div class="grab"></div>` + html;
+  $("#scrim").classList.add("on"); $("#sheet").classList.add("on"); $("#sheet").scrollTop = 0;
+}
+function closeSheet(){ $("#scrim").classList.remove("on"); $("#sheet").classList.remove("on"); }
+$("#scrim").addEventListener("click", closeSheet);
+
+function openLesson(id){
+  const l = LESSONS.find(x => x.id === id), p = activePet();
+  const ok = p && p.done && p.done[id];
+  let reps = 0;
+  openSheet(`
+    <button class="close" type="button" aria-label="Fermer">×</button>
+    <h1>${esc(l.title)}</h1>
+    <div class="meta">${esc(l.time)}</div>
+    <div class="goal">${esc(l.goal)}</div>
+    <ol class="steps">${l.steps.map(s => `<li>${esc(s)}</li>`).join("")}</ol>
+    <p class="note"><b>Signe de réussite</b>${esc(l.success)}</p>
+    <p class="note"><b>Astuce</b>${esc(l.tip)}</p>
+    <div class="mini">
+      <button class="btn-click" id="miniClick" type="button" aria-label="Cliquer">clic</button>
+      <div style="flex:1">
+        <div class="reps" id="reps">0 / ${l.reps}</div>
+        <div class="sub">répétitions de cette séance</div>
+        <div class="bar"><i id="repBar"></i></div>
+      </div>
+    </div>
+    ${p ? `<button class="primary" id="markDone" type="button">${ok ? "Marquer comme à retravailler" : `Marquer comme réussi pour ${esc(p.name)}`}</button>`
+        : `<button class="primary" id="goPets" type="button">Créer la fiche de mon animal</button>`}
+  `);
+  $("#sheet .close").addEventListener("click", closeSheet);
+  bindClicker($("#miniClick"), () => {
+    reps++; sessionCount++;
+    $("#reps").textContent = `${reps} / ${l.reps}`;
+    $("#repBar").style.width = Math.min(100, reps / l.reps * 100) + "%";
+    if (reps === l.reps) toast("Bravo! Termine sur cette réussite 🎉");
+  });
+  if (p) $("#markDone").addEventListener("click", () => {
+    p.done = p.done || {};
+    if (p.done[id]) delete p.done[id]; else p.done[id] = new Date().toISOString().slice(0,10);
+    save(); closeSheet(); render();
+    if (p.done[id]) toast(`${l.title} : réussi!`);
+  });
+  else $("#goPets").addEventListener("click", () => { closeSheet(); showTab("pets"); openPetForm(null); });
+}
+
+function openPetForm(id){
+  const p = id ? S.pets.find(x => x.id === id) : null;
+  let species = p ? p.species : "chien";
+  openSheet(`
+    <button class="close" type="button" aria-label="Fermer">×</button>
+    <h1>${p ? "Modifier la fiche" : "Nouvel animal"}</h1>
+    <label class="f" for="fName">Nom</label>
+    <input class="f" id="fName" value="${esc(p?.name)}" autocomplete="off" placeholder="Ex. : Moka">
+    <label class="f">Espèce</label>
+    <div class="species">
+      <button type="button" data-sp="chien">🐶 Chien</button>
+      <button type="button" data-sp="chat">🐱 Chat</button>
+    </div>
+    <label class="f" for="fBreed">Race</label>
+    <input class="f" id="fBreed" value="${esc(p?.breed)}" autocomplete="off" placeholder="Ex. : Berger australien">
+    <label class="f" for="fAge">Âge</label>
+    <input class="f" id="fAge" value="${esc(p?.age)}" autocomplete="off" placeholder="Ex. : 2 ans">
+    <label class="f" for="fNotes">Description</label>
+    <textarea class="f" id="fNotes" placeholder="Caractère, friandises préférées, sensibilités…">${esc(p?.notes)}</textarea>
+    <button class="primary" id="fSave" type="button">${p ? "Enregistrer" : "Ajouter"}</button>
+    ${p ? `<button class="del" id="fDel" type="button">Supprimer la fiche</button>` : ""}
+  `);
+  const setSp = () => document.querySelectorAll("[data-sp]").forEach(b => b.setAttribute("aria-pressed", b.dataset.sp === species));
+  setSp();
+  document.querySelectorAll("[data-sp]").forEach(b => b.addEventListener("click", () => { species = b.dataset.sp; setSp(); }));
+  $("#sheet .close").addEventListener("click", closeSheet);
+  $("#fSave").addEventListener("click", () => {
+    const name = $("#fName").value.trim();
+    if (!name) { $("#fName").focus(); toast("Ajoute un nom"); return; }
+    const data = { name, species, breed:$("#fBreed").value.trim(), age:$("#fAge").value.trim(), notes:$("#fNotes").value.trim() };
+    if (p) Object.assign(p, data);
+    else { const np = Object.assign({ id: Date.now().toString(36), done:{} }, data); S.pets.push(np); S.activeId = np.id; sessionCount = 0; }
+    save(); closeSheet(); render();
+    toast(p ? "Fiche enregistrée" : `Fiche de ${name} créée`);
+  });
+  if (p) $("#fDel").addEventListener("click", () => {
+    if (!confirm(`Supprimer la fiche de ${p.name} et ses progrès?`)) return;
+    S.pets = S.pets.filter(x => x.id !== p.id);
+    if (S.activeId === p.id) S.activeId = S.pets[0]?.id || null;
+    save(); closeSheet(); render();
+  });
+}
+
+/* ================= Divers ================= */
+let tt;
+function toast(msg){
+  const t = $("#toast"); t.textContent = msg; t.classList.add("on");
+  clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 1800);
+}
+bindClicker($("#bigClick"), () => { sessionCount++; $("#count").textContent = sessionCount;
+  $("#countLbl").textContent = sessionCount === 1 ? "clic cette séance" : "clics cette séance"; });
+document.querySelectorAll("[data-sound]").forEach(b => b.addEventListener("click", () => { S.sound = b.dataset.sound; save(); render(); clickSound(); }));
+$("#reset").addEventListener("click", () => { sessionCount = 0; render(); toast("Nouvelle séance"); });
+$("#addPet").addEventListener("click", () => openPetForm(null));
+render();
+</script>
+</body>
+</html>
