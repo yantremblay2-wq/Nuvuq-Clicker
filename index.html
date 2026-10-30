@@ -44,9 +44,9 @@ button{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--treat);outline-offset:2px}
 
 header.top{
-  display:flex;align-items:center;gap:12px;padding:14px 20px 8px;
+  display:flex;align-items:center;gap:12px;padding:6px 18px 4px;
 }
-.mark{width:34px;height:34px;border-radius:10px;flex:none}
+.mark{width:30px;height:30px;border-radius:10px;flex:none}
 .brand{font-weight:900;font-size:20px;letter-spacing:-.01em;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .brand small{display:block;font-weight:600;font-size:13px;color:var(--ink-soft);letter-spacing:0;margin-top:-3px}
 .petchip{
@@ -55,20 +55,40 @@ header.top{
 }
 .petchip .sp{font-size:18px}
 
-main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 20px 24px}
+main{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 18px 12px}
 .view{display:none;max-width:560px;margin:0 auto}
 .view.on{display:block}
 
 /* ---------- Clicker ---------- */
-.session{text-align:center;color:var(--ink-soft);font-weight:600;margin:8px 0 18px}
+#v-clicker.on{display:flex;flex-direction:column;height:100%}
+.session{text-align:center;color:var(--ink-soft);font-weight:600;font-size:15px;margin:2px 0 8px}
 .session b{color:var(--ink)}
+.coach{background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:12px 14px;margin-bottom:6px}
+.coach[hidden],.reminder[hidden],.row[hidden]{display:none}
+.coach-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.coach-title{font-weight:900;font-size:17px}
+.coach-quit{border:0;background:none;color:var(--ink-soft);font-weight:700;font-size:14px;padding:4px 0;cursor:pointer}
+.dots{display:flex;gap:4px;margin:8px 0 4px}
+.dots i{flex:1;height:5px;border-radius:3px;background:var(--line)}
+.dots i.on{background:var(--treat)}
+.coach-n{font-size:13px;font-weight:800;color:var(--ink-soft)}
+.coach-step{font-size:16px;line-height:1.4;margin:4px 0 0}
+.coach-ok{font-size:14px;color:var(--ink-soft);margin:8px 0 0;line-height:1.4}
+.coach-ok b{color:var(--ok)}
+.coach-nav{display:flex;gap:8px;margin-top:12px}
+.coach-nav button{flex:1;border-radius:12px;padding:11px 8px;font-weight:800;font-size:15px;cursor:pointer;border:1.5px solid var(--line);background:var(--bg)}
+.coach-nav .next{flex:2;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.coach-nav .win{flex:2;background:var(--ok);color:#fff;border-color:var(--ok)}
+.coach-nav button:disabled{opacity:.35}
+.stage{flex:1;min-height:0;display:grid;place-items:center;padding:6px 0}
 .device{
-  margin:0 auto;width:min(78vw,300px);aspect-ratio:1/1.12;
+  width:min(64vw,34vh,280px);width:min(64vw,34dvh,280px);aspect-ratio:1/1.12;
   background:var(--shell);border-radius:34% 34% 30% 30% / 28% 28% 24% 24%;
   border:2px solid var(--shell-edge);
   box-shadow:inset 0 -10px 0 var(--shell-edge);
   display:grid;place-items:center;position:relative;
 }
+#v-clicker.guided .device{width:min(50vw,25vh,230px);width:min(50vw,25dvh,230px)}
 .device::after{ /* trou de la dragonne */
   content:"";position:absolute;top:7%;left:50%;width:22px;height:10px;margin-left:-11px;
   border-radius:6px;background:var(--bg);border:2px solid var(--shell-edge);
@@ -77,25 +97,22 @@ main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 20px 24
   width:62%;aspect-ratio:1;border-radius:50%;border:0;cursor:pointer;
   background:radial-gradient(circle at 50% 38%,var(--treat-hi) 0 48%,var(--treat) 49%);
   box-shadow:0 12px 0 #C9821C, 0 14px 18px rgba(0,0,0,.18);
-  transform:translateY(-6px);transition:transform 60ms, box-shadow 60ms;
-  touch-action:manipulation;-webkit-user-select:none;user-select:none;
+  transform:translateY(-6px);transition:transform 50ms, box-shadow 50ms;
+  touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
   font-weight:900;font-size:22px;color:var(--treat-ink);
 }
 .btn-click.down{transform:translateY(5px);box-shadow:0 1px 0 #C9821C,0 2px 4px rgba(0,0,0,.2)}
-.count{text-align:center;margin-top:26px}
-.count .n{font-size:64px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
-.count .l{color:var(--ink-soft);font-weight:600}
-.reminder{
-  margin:22px auto 0;max-width:340px;text-align:center;font-size:15px;color:var(--ink-soft);
-}
-.row{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.reminder{margin:4px auto 0;max-width:340px;text-align:center;font-size:14px;color:var(--ink-soft);line-height:1.4}
+.row{display:flex;gap:10px;justify-content:center;margin-top:10px;flex-wrap:wrap}
 .ghost{
   border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:9px 14px;
   font-weight:700;font-size:15px;cursor:pointer;
 }
 .seg{display:inline-flex;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
-.seg button{border:0;background:none;padding:9px 14px;font-weight:700;font-size:15px;cursor:pointer;color:var(--ink-soft)}
+.seg button{border:0;background:none;padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer;color:var(--ink-soft)}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.start{background:var(--treat);color:var(--treat-ink)}
+.secondary{width:100%;border:1.5px solid var(--line);background:var(--surface);border-radius:16px;padding:13px;font-weight:800;font-size:16px;cursor:pointer;margin-top:10px}
 
 /* ---------- Guide ---------- */
 h1{font-size:28px;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin:12px 0 6px}
@@ -194,7 +211,7 @@ nav.tabs{
   padding:6px 8px 4px;
 }
 nav.tabs button{border:0;background:none;padding:6px 0;cursor:pointer;color:var(--ink-soft);font-weight:700;font-size:13px;display:flex;flex-direction:column;align-items:center;gap:2px}
-nav.tabs button svg{width:26px;height:26px}
+nav.tabs button svg{width:24px;height:24px}
 nav.tabs button[aria-selected="true"]{color:var(--ink)}
 nav.tabs button[aria-selected="true"] svg{color:var(--treat)}
 .toast{
@@ -218,17 +235,18 @@ nav.tabs button[aria-selected="true"] svg{color:var(--treat)}
   <!-- CLICKER -->
   <section class="view on" id="v-clicker" aria-label="Clicker">
     <p class="session" id="sessionLine"></p>
-    <div class="device">
-      <button class="btn-click" id="bigClick" type="button" aria-label="Cliquer">clic</button>
+    <div class="coach" id="coach" hidden></div>
+    <div class="stage">
+      <div class="device">
+        <button class="btn-click" id="bigClick" type="button" aria-label="Cliquer">clic</button>
+      </div>
     </div>
-    <div class="count"><div class="n" id="count">0</div><div class="l" id="countLbl">clics cette séance</div></div>
-    <p class="reminder">Chaque clic promet une récompense. Clique au moment exact du bon geste, puis récompense dans les 2 secondes.</p>
-    <div class="row">
+    <p class="reminder" id="reminder">Clique au moment exact du bon geste, puis récompense dans les 2 secondes. Pour être guidé, choisis un exercice dans le Guide.</p>
+    <div class="row" id="soundRow">
       <div class="seg" role="group" aria-label="Son du clic">
         <button type="button" data-sound="classique">Son classique</button>
         <button type="button" data-sound="doux">Son doux</button>
       </div>
-      <button class="ghost" id="reset" type="button">Nouvelle séance</button>
     </div>
   </section>
 
@@ -443,33 +461,44 @@ function audioReady(){
   } catch(e) {}
 }
 ["touchend","click","keydown"].forEach(ev => document.addEventListener(ev, audioReady, { passive:true }));
-function clickSound(){
+// Un vrai clicker fait deux bruits : la lame qui plie (clic), puis qui revient (clac)
+function clickSound(release){
   try {
     if (!ac) audioReady();
     if (ac.state === "suspended") ac.resume();
-    const t = ac.currentTime, soft = S.sound === "doux";
-    // Deux petits claquements, comme la lame de métal d’un vrai clicker
-    [[0, 1], [0.045, 0.55]].forEach(([dt, amp]) => {
-      const len = Math.floor(ac.sampleRate * 0.02);
-      const buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
-      for (let i = 0; i < len; i++) d[i] = (Math.random()*2-1) * Math.pow(1 - i/len, 6);
-      const src = ac.createBufferSource(); src.buffer = buf;
-      const bp = ac.createBiquadFilter(); bp.type = "bandpass";
-      bp.frequency.value = soft ? 1800 : 3800; bp.Q.value = soft ? 0.8 : 1.6;
-      const g = ac.createGain(); g.gain.value = amp * (soft ? 0.5 : 1.4);
-      src.connect(bp).connect(g).connect(ac.destination);
-      src.start(t + dt);
+    const t = ac.currentTime + 0.001, soft = S.sound === "doux";
+    const out = ac.createGain(); out.gain.value = (release ? 0.5 : 1) * (soft ? 0.45 : 1);
+    const lp = ac.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = soft ? 2800 : 14000;
+    out.connect(lp).connect(ac.destination);
+    // impact très bref
+    const len = Math.floor(ac.sampleRate * 0.006);
+    const buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (Math.random()*2-1) * Math.pow(1 - i/len, 3);
+    const n = ac.createBufferSource(); n.buffer = buf;
+    const hp = ac.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 1500;
+    const ng = ac.createGain(); ng.gain.value = 0.9;
+    n.connect(hp).connect(ng).connect(out); n.start(t);
+    // résonance de la lame de métal et du boîtier
+    const k = release ? 1.13 : 1;
+    [[2650,0.5,0.035],[4300,0.35,0.025],[6900,0.22,0.015],[950,0.25,0.02]].forEach(([f,a,dec]) => {
+      const o = ac.createOscillator(); o.type = "sine"; o.frequency.value = f * k;
+      const g = ac.createGain();
+      g.gain.setValueAtTime(a, t); g.gain.exponentialRampToValueAtTime(0.0001, t + dec);
+      o.connect(g).connect(out); o.start(t); o.stop(t + dec + 0.02);
     });
   } catch(e) {}
-  if (navigator.vibrate) navigator.vibrate(12);
+  if (!release && navigator.vibrate) navigator.vibrate(10);
 }
 function bindClicker(btn, onClick){
-  const down = e => { e.preventDefault(); btn.classList.add("down"); clickSound(); onClick(); };
-  const up = () => btn.classList.remove("down");
+  let isDown = false;
+  const down = e => { e.preventDefault(); if (isDown) return; isDown = true;
+    btn.classList.add("down"); clickSound(false); if (onClick) onClick(); };
+  const up = () => { if (!isDown) return; isDown = false; btn.classList.remove("down"); clickSound(true); };
   btn.addEventListener("pointerdown", down);
   btn.addEventListener("pointerup", up);
   btn.addEventListener("pointerleave", up);
   btn.addEventListener("pointercancel", up);
+  btn.addEventListener("contextmenu", e => e.preventDefault());
   btn.addEventListener("keydown", e => { if ((e.key === " " || e.key === "Enter") && !e.repeat) down(e); });
   btn.addEventListener("keyup", up);
 }
@@ -491,8 +520,7 @@ function render(){
 
   // Clicker
   $("#sessionLine").innerHTML = p ? `Séance avec <b>${esc(p.name)}</b>` : `Crée la fiche de ton animal pour suivre ses progrès`;
-  $("#count").textContent = sessionCount;
-  $("#countLbl").textContent = sessionCount === 1 ? "clic cette séance" : "clics cette séance";
+  renderCoach();
   document.querySelectorAll("[data-sound]").forEach(b => b.setAttribute("aria-pressed", b.dataset.sound === S.sound));
 
   // Guide
@@ -546,40 +574,58 @@ $("#scrim").addEventListener("click", closeSheet);
 function openLesson(id){
   const l = LESSONS.find(x => x.id === id), p = activePet();
   const ok = p && p.done && p.done[id];
-  let reps = 0;
   openSheet(`
     <button class="close" type="button" aria-label="Fermer">×</button>
     <h1>${esc(l.title)}</h1>
-    <div class="meta">${esc(l.time)}</div>
+    <div class="meta">${esc(l.time)}${ok ? " · Réussi ✓" : ""}</div>
     <div class="goal">${esc(l.goal)}</div>
     <ol class="steps">${l.steps.map(s => `<li>${esc(s)}</li>`).join("")}</ol>
     <p class="note"><b>Signe de réussite</b>${esc(l.success)}</p>
     <p class="note"><b>Astuce</b>${esc(l.tip)}</p>
-    <div class="mini">
-      <button class="btn-click" id="miniClick" type="button" aria-label="Cliquer">clic</button>
-      <div style="flex:1">
-        <div class="reps" id="reps">0 / ${l.reps}</div>
-        <div class="sub">répétitions de cette séance</div>
-        <div class="bar"><i id="repBar"></i></div>
-      </div>
-    </div>
-    ${p ? `<button class="primary" id="markDone" type="button">${ok ? "Marquer comme à retravailler" : `Marquer comme réussi pour ${esc(p.name)}`}</button>`
-        : `<button class="primary" id="goPets" type="button">Créer la fiche de mon animal</button>`}
+    <button class="primary start" id="startGuided" type="button">Commencer avec le clicker</button>
+    ${p ? `<button class="secondary" id="markDone" type="button">${ok ? "Décocher : à retravailler" : `Marquer comme réussi pour ${esc(p.name)}`}</button>` : ""}
   `);
   $("#sheet .close").addEventListener("click", closeSheet);
-  bindClicker($("#miniClick"), () => {
-    reps++; sessionCount++;
-    $("#reps").textContent = `${reps} / ${l.reps}`;
-    $("#repBar").style.width = Math.min(100, reps / l.reps * 100) + "%";
-    if (reps === l.reps) toast("Bravo! Termine sur cette réussite 🎉");
+  $("#startGuided").addEventListener("click", () => {
+    S.guided = { lesson:id, step:0 }; save(); closeSheet(); showTab("clicker");
   });
-  if (p) $("#markDone").addEventListener("click", () => {
-    p.done = p.done || {};
-    if (p.done[id]) delete p.done[id]; else p.done[id] = new Date().toISOString().slice(0,10);
-    save(); closeSheet(); render();
-    if (p.done[id]) toast(`${l.title} : réussi!`);
+  if (p) $("#markDone").addEventListener("click", () => { toggleDone(p, l); closeSheet(); });
+}
+
+function toggleDone(p, l){
+  p.done = p.done || {};
+  if (p.done[l.id]) delete p.done[l.id]; else p.done[l.id] = new Date().toISOString().slice(0,10);
+  save(); render();
+  toast(p.done[l.id] ? `${l.title} : réussi! 🎉` : `${l.title} : à retravailler`);
+}
+
+function renderCoach(){
+  const g = S.guided, l = g && LESSONS.find(x => x.id === g.lesson), on = !!l;
+  $("#v-clicker").classList.toggle("guided", on);
+  $("#coach").hidden = !on; $("#reminder").hidden = on; $("#soundRow").hidden = on;
+  if (!on) return;
+  const i = Math.min(g.step, l.steps.length - 1), last = i === l.steps.length - 1;
+  const p = activePet(), ok = p && p.done && p.done[l.id];
+  $("#coach").innerHTML = `
+    <div class="coach-top"><span class="coach-title">${esc(l.title)}</span>
+      <button class="coach-quit" id="cQuit" type="button">Quitter</button></div>
+    <div class="dots">${l.steps.map((_,k) => `<i class="${k <= i ? "on" : ""}"></i>`).join("")}</div>
+    <div class="coach-n">Étape ${i+1} sur ${l.steps.length}</div>
+    <p class="coach-step">${esc(l.steps[i])}</p>
+    ${last ? `<p class="coach-ok"><b>Réussi quand :</b> ${esc(l.success)}</p>` : ""}
+    <div class="coach-nav">
+      <button type="button" id="cPrev" ${i === 0 ? "disabled" : ""}>Précédent</button>
+      ${last ? `<button type="button" class="win" id="cWin">${ok ? "Déjà réussi ✓" : "Réussi ✓"}</button>`
+             : `<button type="button" class="next" id="cNext">Étape suivante</button>`}
+    </div>`;
+  $("#cQuit").addEventListener("click", () => { S.guided = null; save(); render(); });
+  $("#cPrev").addEventListener("click", () => { g.step = Math.max(0, i - 1); save(); renderCoach(); });
+  if (!last) $("#cNext").addEventListener("click", () => { g.step = i + 1; save(); renderCoach(); });
+  else $("#cWin").addEventListener("click", () => {
+    if (!p) { toast("Crée la fiche de ton animal pour cocher ses réussites"); showTab("pets"); openPetForm(null); return; }
+    if (!ok) toggleDone(p, l);
+    S.guided = null; save(); showTab("guide");
   });
-  else $("#goPets").addEventListener("click", () => { closeSheet(); showTab("pets"); openPetForm(null); });
 }
 
 function openPetForm(id){
@@ -631,10 +677,10 @@ function toast(msg){
   const t = $("#toast"); t.textContent = msg; t.classList.add("on");
   clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 1800);
 }
-bindClicker($("#bigClick"), () => { sessionCount++; $("#count").textContent = sessionCount;
-  $("#countLbl").textContent = sessionCount === 1 ? "clic cette séance" : "clics cette séance"; });
-document.querySelectorAll("[data-sound]").forEach(b => b.addEventListener("click", () => { S.sound = b.dataset.sound; save(); render(); clickSound(); }));
-$("#reset").addEventListener("click", () => { sessionCount = 0; render(); toast("Nouvelle séance"); });
+bindClicker($("#bigClick"));
+document.querySelectorAll("[data-sound]").forEach(b => b.addEventListener("click", () => {
+  S.sound = b.dataset.sound; save(); render(); clickSound(false); setTimeout(() => clickSound(true), 110);
+}));
 $("#addPet").addEventListener("click", () => openPetForm(null));
 render();
 </script>
